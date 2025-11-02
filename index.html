@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alfin Sadewa - Portofolio Web Developer</title>
+    <!-- Tailwind CSS CDN (untuk styling) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS untuk Parallax dan Scroll Reveal -->
+    <style>
+        /* Global Styles (Deep Navy Theme) */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Tailwind: slate-900 */
+            color: #f3f4f6;
+            scroll-behavior: smooth;
+        }
+
+        /* Parallax Background Classes (Fixed Position) */
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1; 
+            background-size: cover;
+            background-position: center;
+            /* Menambahkan overlay gelap di atas gambar untuk menjaga tema gelap dan keterbacaan teks */
+            box-shadow: inset 0 0 0 1000px rgba(15, 23, 42, 0.7); /* slate-900 at 70% opacity */
+        }
+        
+        /* Content Layer (Relative Position) */
+        .parallax-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Scroll Reveal Animation */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(60px); 
+            transition: opacity 1.2s ease-out, transform 0.8s ease-out; 
+            transition-delay: 0.1s;
+            will-change: opacity, transform;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Utility untuk Navbar Sticky */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+        }
+    </style>
+</head>
+<body class="selection:bg-orange-500 selection:text-white">
+
+    <!-- Navbar -->
+    <header class="sticky-nav z-50 bg-slate-900/90 backdrop-blur-sm shadow-xl shadow-black/30">
+        <!-- Diubah ke max-w-7xl untuk menyebar logo dan navigasi lebih jauh -->
+        <nav class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-extrabold text-orange-500 hover:text-orange-400 transition">
+                <span class="text-gray-200">Sadewa</span>.Porto
+            </a>
+            <div class="space-x-6 flex items-center"> 
+                <a href="#hero" class="text-gray-300 hover:text-orange-500 transition duration-300 transform hover:scale-105">Home</a>
+                <a href="#about" class="text-gray-300 hover:text-orange-500 transition duration-300 transform hover:scale-105">Tentang</a>
+                <a href="#projects" class="text-gray-300 hover:text-orange-500 transition duration-300 transform hover:scale-105">Proyek</a>
+                <a href="#blog" class="text-gray-300 hover:text-orange-500 transition duration-300 transform hover:scale-105">Blog</a>
+                <a href="#contact" class="text-gray-300 hover:text-orange-500 transition duration-300 transform hover:scale-105">Kontak</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Parallax Layer 1: Latar Belakang Hero (Menggunakan URL gambar) -->
+    <div 
+        id="hero-bg"
+        class="parallax-bg" 
+        style="background-image: url('https://picsum.photos/seed/geometric_lines/1920/1080');"
+    ></div>
+
+    <!-- Section 1: Hero -->
+    <section id="hero" class="h-screen flex items-center justify-center parallax-content">
+        <div class="text-center p-8 md:p-12 bg-slate-800/80 backdrop-blur-md rounded-2xl shadow-2xl shadow-orange-500/10 max-w-3xl mx-4 border-l-8 border-orange-500 animate-on-scroll is-visible" >
+            <p class="text-sm uppercase tracking-widest text-gray-300 mb-2">Halo, Saya adalah</p>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-tight">
+                <span class="text-orange-500">Alfin bagus</span> sadewo
+            </h1>
+            <h2 class="text-2xl md:text-3xl text-gray-300 font-light mb-6">
+                Pengembang Web &amp; Desainer UI/UX
+            </h2>
+            <p class="text-gray-400 mb-8 max-w-xl mx-auto">
+                Membangun pengalaman digital yang cepat, responsif, dan elegan. Mari kita wujudkan ide Anda.
+            </p>
+            <a href="#projects" class="inline-block px-8 py-3 text-lg font-semibold bg-orange-500 text-slate-900 rounded-full hover:bg-orange-600 transition duration-300 shadow-xl shadow-orange-500/50 transform hover:scale-[1.03] active:scale-[0.98]">
+                Lihat Proyek Saya
+            </a>
+        </div>
+    </section>
+
+    <!-- Section 2: Tentang Saya -->
+    <section id="about" class="py-20 bg-slate-900 animate-on-scroll parallax-content">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12">Tentang <span class="text-orange-500">Saya</span></h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="sadewa.jpg" alt="Foto Profil" class="w-full h-auto object-cover rounded-xl shadow-2xl border-2 border-slate-700"/>
+                </div>
+                <div class="space-y-6">
+                    <p class="text-lg text-gray-300">
+                        Saya Alfin, seorang pengembang yang berfokus pada front-end, namun memiliki pemahaman yang kuat tentang back-end. Keahlian saya terletak pada menciptakan antarmuka yang intuitif dan berkinerja tinggi.
+                    </p>
+                    <p class="text-lg text-gray-300">
+                        Saya sangat antusias dalam menggunakan teknologi modern seperti React, Vue, dan Tailwind CSS untuk memberikan pengalaman terbaik bagi pengguna di berbagai perangkat.
+                    </p>
+                    <div class="pt-4">
+                        <h3 class="text-2xl font-semibold mb-3 text-orange-500">Keahlian Utama</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-3 py-1 bg-gray-700 text-gray-200 rounded-full text-sm hover:bg-orange-700 transition duration-200 transform hover:scale-105 cursor-default">HTML5/CSS3</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-200 rounded-full text-sm hover:bg-orange-700 transition duration-200 transform hover:scale-105 cursor-default">JavaScript (ES6+)</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-200 rounded-full text-sm hover:bg-orange-700 transition duration-200 transform hover:scale-105 cursor-default">Python3</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-200 rounded-full text-sm hover:bg-orange-700 transition duration-200 transform hover:scale-105 cursor-default">Tailwind CSS</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-200 rounded-full text-sm hover:bg-orange-700 transition duration-200 transform hover:scale-105 cursor-default">C++</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-200 rounded-full text-sm hover:bg-orange-700 transition duration-200 transform hover:scale-105 cursor-default">UI/UX Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Proyek -->
+    <section id="projects" class="py-20 bg-slate-800 animate-on-scroll parallax-content">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-100">Proyek <span class="text-orange-500">Terbaru</span></h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-slate-900 rounded-xl overflow-hidden shadow-2xl hover:shadow-orange-500/30 transition duration-300 border border-slate-700 hover:border-orange-500 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/600x350/252b36/f97316?text=E-Commerce+App" alt="Proyek E-Commerce" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 text-orange-500">Aplikasi E-Commerce Modern</h3>
+                        <p class="text-gray-400 mb-4 text-sm">
+                            Platform belanja online responsif yang dibangun dengan React dan Redux, berfokus pada kecepatan load.
+                        </p>
+                        <a href="#" class="text-sm font-medium text-orange-400 hover:text-orange-500 transition duration-200">Lihat Detail &rarr;</a>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="bg-slate-900 rounded-xl overflow-hidden shadow-2xl hover:shadow-orange-500/30 transition duration-300 border border-slate-700 hover:border-orange-500 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/600x350/252b36/f97316?text=SaaS+Dashboard" alt="Proyek SaaS Dashboard" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 text-orange-500">Dashboard Analitik SaaS</h3>
+                        <p class="text-gray-400 mb-4 text-sm">
+                            Antarmuka pengguna yang kompleks untuk visualisasi data, menggunakan D3.js dan Tailwind.
+                        </p>
+                        <a href="#" class="text-sm font-medium text-orange-400 hover:text-orange-500 transition duration-200">Lihat Detail &rarr;</a>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="bg-slate-900 rounded-xl overflow-hidden shadow-2xl hover:shadow-orange-500/30 transition duration-300 border border-slate-700 hover:border-orange-500 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/600x350/252b36/f97316?text=Company+Profile+Site" alt="Proyek Company Profile" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 text-orange-500">Website Profil Perusahaan</h3>
+                        <p class="text-gray-400 mb-4 text-sm">
+                            Website informasi dengan fokus pada SEO dan performa load yang cepat.
+                        </p>
+                        <a href="#" class="text-sm font-medium text-orange-400 hover:text-orange-500 transition duration-200">Lihat Detail &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Blog -->
+    <section id="blog" class="py-20 bg-slate-900 animate-on-scroll parallax-content">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-100">Artikel <span class="text-orange-500">Terbaru</span></h2>
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <!-- Blog Post 1 -->
+                <div class="bg-slate-800 rounded-xl overflow-hidden shadow-2xl hover:shadow-orange-500/30 transition duration-300 border border-slate-700 hover:border-orange-500 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/600x350/1e2e28/f97316?text=AI+in+Web+Dev" alt="Blog Post 1" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <span class="text-xs uppercase text-orange-500 font-semibold mb-2 block">Teknologi</span>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-100">Masa Depan AI dalam Pengembangan Web</h3>
+                        <p class="text-gray-400 mb-4 text-sm">
+                            Bagaimana kecerdasan buatan mengubah cara kita menulis kode dan mendesain UI.
+                        </p>
+                        <a href="#" class="text-sm font-medium text-orange-400 hover:text-orange-500 transition duration-200">Baca Selengkapnya &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 2 -->
+                <div class="bg-slate-800 rounded-xl overflow-hidden shadow-2xl hover:shadow-orange-500/30 transition duration-300 border border-slate-700 hover:border-orange-500 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/600x350/222222/f97316?text=Tailwind+Tips" alt="Blog Post 2" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <span class="text-xs uppercase text-orange-500 font-semibold mb-2 block">CSS & UI</span>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-100">5 Trik Tailwind CSS yang Efisien</h3>
+                        <p class="text-gray-400 mb-4 text-sm">
+                            Mempercepat workflow pengembangan Anda dengan utilitas-utilitas tersembunyi.
+                        </p>
+                        <a href="#" class="text-sm font-medium text-orange-400 hover:text-orange-500 transition duration-200">Baca Selengkapnya &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 3 -->
+                <div class="bg-slate-800 rounded-xl overflow-hidden shadow-2xl hover:shadow-orange-500/30 transition duration-300 border border-slate-700 hover:border-orange-500 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/600x350/1f2937/f97316?text=React+Hooks" alt="Blog Post 3" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <span class="text-xs uppercase text-orange-500 font-semibold mb-2 block">Framework</span>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-100">Panduan Mendalam tentang Custom Hooks React</h3>
+                        <p class="text-gray-400 mb-4 text-sm">
+                            Meningkatkan reusabilitas kode Anda dengan membuat Hooks sendiri.
+                        </p>
+                        <a href="#" class="text-sm font-medium text-orange-400 hover:text-orange-500 transition duration-200">Baca Selengkapnya &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Layer 2: Latar Belakang Kontak (Menggunakan URL gambar) -->
+    <div 
+        id="contact-bg"
+        class="parallax-bg" 
+        style="background-image: url('https://picsum.photos/seed/geometric_lines/1920/1080');"
+    ></div>
+
+    <!-- Section 5: Kontak -->
+    <section id="contact" class="py-32 h-screen flex items-center justify-center parallax-content">
+        <div id="contact-content" class="text-center p-8 md:p-12 bg-slate-900/90 backdrop-blur-md rounded-2xl shadow-2xl shadow-orange-500/20 max-w-2xl mx-4 border-r-8 border-orange-500 animate-on-scroll">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                Tertarik untuk <span class="text-orange-500">Kolaborasi</span>?
+            </h2>
+            <p class="text-gray-300 mb-8 text-lg">
+                Hubungi saya untuk mendiskusikan proyek baru atau peluang kerja sama. Saya siap membantu!
+            </p>
+            <a href="mailto:rizky.pramana@example.com" class="inline-block px-10 py-4 text-xl font-bold bg-orange-500 text-slate-900 rounded-full hover:bg-orange-600 transition duration-300 shadow-xl shadow-orange-500/70 transform hover:scale-[1.03] active:scale-[0.98]">
+                Kirim Email Saya
+            </a>
+            <div class="mt-8 text-gray-400">
+                <p>Atau hubungi via WhatsApp: +62 857-6177-9383</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 py-6 text-center text-gray-500 text-sm parallax-content">
+        <p>&copy; 2024 Alfin sadewa Portofolio. Dibuat dengan &lt;/&gt;, HTML, CSS dan JS.</p>
+    </footer>
+
+    <!-- JavaScript Logic (Parallax dan Scroll Reveal) -->
+    <script>
+        // Logika Parallax
+        const applyParallax = () => {
+            const scrollY = window.scrollY;
+            const heroBg = document.getElementById('hero-bg');
+            const contactBg = document.getElementById('contact-bg');
+
+            const HERO_SPEED = 0.4; 
+            const CONTACT_SPEED = 0.25; 
+
+            // Menggunakan transform 3D untuk performa yang lebih baik
+            if (heroBg) {
+                heroBg.style.transform = `translate3d(0, ${scrollY * HERO_SPEED}px, 0)`;
+            }
+            if (contactBg) {
+                contactBg.style.transform = `translate3d(0, ${scrollY * CONTACT_SPEED}px, 0)`;
+            }
+        };
+
+        // Logika Scroll Reveal menggunakan Intersection Observer
+        const scrollReveal = () => {
+            // Pilih semua elemen yang memiliki class 'animate-on-scroll'
+            const sections = document.querySelectorAll('.animate-on-scroll');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 
+            };
+
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Tambahkan class 'is-visible' untuk memicu transisi CSS
+                        entry.target.classList.add('is-visible');
+                        // Berhenti mengamati elemen setelah terlihat
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+        };
+
+        // Jalankan semua fungsi setelah dokumen dimuat
+        window.onload = function() {
+            // 1. Setup Listener Scroll untuk Parallax
+            window.addEventListener('scroll', applyParallax);
+            // Panggil Parallax sekali saat load untuk posisi awal yang benar
+            applyParallax();
+
+            // 2. Jalankan Scroll Reveal
+            scrollReveal();
+        };
+    </script>
+</body>
+</html>
